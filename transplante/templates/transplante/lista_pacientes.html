@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/lista_pacientes.css' %}">
+        <title>Lista de Pacientes</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="/">Lista de Pacientes</a></h1>
+        </div>
+
+{% for paciente in pacientes %}
+        <div>
+        <h2><a href="">{{ paciente.nome}}</a></h2>
+		telefone: {{paciente.telefone}} <br>
+cpf: {{paciente.cpf}} <br>
+email: {{paciente.email}} <br>
+data nascimento: {{paciente.data_nasc}} <br>
+tipo sanguineo: {{paciente.tipo_sanguineo}} <br>
+orgao: {{paciente.orgao}} <br>
+alergia: {{paciente.alergia}} <br>
+doenca pre existente: {{paciente.doenca_preexist}} <br>
+  
+    </div>
+{% endfor %}
+    </body>
+</html>
