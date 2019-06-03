@@ -16,24 +16,29 @@ class Paciente (Pessoa):
 		doenca_preexist = models.CharField(max_length=100, default = '')
 
 
-class Clinicos (Pessoa):
-		id_clinicos = models.AutoField(primary_key=True)
+class Clinico (Pessoa):
+		id_clinico = models.AutoField(primary_key=True)
 		setor = models.CharField(max_length=100, default = '')
 		profissao = models.CharField(max_length=50, default = '')
 		CRM_CRE = models.CharField(max_length=50, default = '')
 		especialidade = models.CharField(max_length=100, default = '')
      
 
-class Secretarios (Pessoa):
+class Secretario (Pessoa):
 	def __init__(self):
-		id_secretario = models.AutoField(primary_key=True)
 		self.pacientes = []
 		self.clinicos = []
+		self.secretarios = []
+
 
 	def RegistraPaciente(self, nome, telefone, cpf, email, data_nasc, tipo_sanguineo, orgao, alergia, doenca_preexist):
 		self.pacientes.append(Paciente(nome, telefone, cpf, email, data_nasc, tipo_sanguineo, orgao, alergia, doenca_preexist))
 
-	def RegistraClinicos(self, nome, telefone, cpf, email, data_nasc, setor, profissao, CRM_CRE, especialidade):
-		self.clinicos.append(Clinicos(nome, telefone, cpf, email, data_nasc, setor, profissao, CRM_CRE, especialidade))
+	def RegistraClinico(self, nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade):
+		self.clinicos.append(Clinico(nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade))
+
+	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc):
+		self.secretarios.append(Pessoa(nome, telefone, cpf, email, data_nasc))
+
 
 

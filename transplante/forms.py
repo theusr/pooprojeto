@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Paciente, Clinicos
+from .models import Paciente, Clinico, Secretario
 
 class PacienteForm(forms.ModelForm):
 
@@ -10,11 +10,17 @@ class PacienteForm(forms.ModelForm):
 
 
 
-
-class ClinicosForm(forms.ModelForm):
+class ClinicoForm(forms.ModelForm):
 
     class Meta:
-        model = Clinicos
+        model = Clinico
         fields = ('nome', 'telefone', 'cpf', 'email', 'data_nasc', 'setor', 'profissao', 'CRM_CRE', 'especialidade')
+
+
+class SecretarioForm(forms.ModelForm):
+
+    class Meta:
+        model = Secretario
+        fields = ('nome', 'telefone', 'cpf', 'email', 'data_nasc')
 
 
