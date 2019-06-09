@@ -25,10 +25,9 @@ class Clinico (Pessoa):
      
 
 class Secretario (Pessoa):
-	def __init__(self):
-		self.pacientes = []
-		self.clinicos = []
-		self.secretarios = []
+	pacientes = []
+	clinicos = []
+	secretarios = []
 
 
 	def RegistraPaciente(self, nome, telefone, cpf, email, data_nasc, tipo_sanguineo, orgao, alergia, doenca_preexist):
