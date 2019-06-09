@@ -8,16 +8,8 @@ def lista_pacientes(request):
 	pacientes = Paciente.objects.all()
 	clinicos = Clinico.objects.all()
 	secretarios = Secretario.objects.all()
-	return render(request, 'transplante/lista_pacientes.html', {'secretarios': secretarios})
+	return render(request, 'transplante/lista_pacientes.html', {'pacientes': pacientes, 'clinicos': clinicos, 'secretarios': secretarios})
 
-
-def lista_clinicos(request):
-	clinicos = Clinico.objects.all()
-	return render(request, 'transplante/lista_pacientes.html', {'clinicos': clinicos})
-
-def lista_secretarios(request):
-	secretarios = Secretario.object.all()
-	return render(request, 'transplante/lista_secretarios.html', {'secretarios': secretarios})
 
 def paciente_detail(request, pk):
     post = get_object_or_404(Paciente, pk=pk)
