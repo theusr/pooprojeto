@@ -10,10 +10,13 @@
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7}
     p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333}
     p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #c82829; -webkit-text-stroke: #c82829; background-color: #f7f7f7}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7; min-height: 15.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #718c00; -webkit-text-stroke: #718c00; background-color: #f7f7f7}
     span.s1 {font-kerning: none}
     span.s2 {font-kerning: none; color: #333333; -webkit-text-stroke: 0px #333333}
     span.s3 {font-kerning: none; color: #718c00; -webkit-text-stroke: 0px #718c00}
     span.s4 {font-kerning: none; color: #c82829; -webkit-text-stroke: 0px #c82829}
+    span.s5 {font-kerning: none; -webkit-text-stroke: 0px #000000}
   </style>
 </head>
 <body>
@@ -31,6 +34,36 @@
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ paciente.orgao }}</span><span class="s4">&lt;/h1&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ paciente.alergia }}</span><span class="s4">&lt;/h1&gt;</span></p>
 <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;p&gt;</span><span class="s1">{{ paciente.doenca_preexist }}</span><span class="s4">&lt;/p&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">{% endblock %}</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{% extends ‘transplante/base.html' %}</span></p>
+<p class="p2"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{% block content %}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;div class=</span><span class="s3">“clinicos”</span><span class="s1">&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.nome }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.telefone }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.cpf }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.email }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.data_nasc }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.setor }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.profissao }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ clinico.CRM_CRE }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;p&gt;</span><span class="s1">{{ clinico.especialidade }}</span><span class="s4">&lt;/p&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">{% endblock %}</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{% extends ‘transplante/base.html' %}</span></p>
+<p class="p2"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1">{% block content %}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4">&lt;div class=</span><span class="s1">“secretarios”</span><span class="s4">&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ secretario.nome }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ </span><span class="s5">secretario</span><span class="s1">.telefone }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ </span><span class="s5">secretario</span><span class="s1">.cpf }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;h1&gt;</span><span class="s1">{{ </span><span class="s5">secretario</span><span class="s1">.email }}</span><span class="s4">&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s4">&lt;p&gt;</span><span class="s1">{{ secretario.data_nasc }}</span><span class="s4">&lt;/p&gt;</span></p>
 <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/div&gt;</span></p>
 <p class="p1"><span class="s1">{% endblock %}</span></p>
 </body>

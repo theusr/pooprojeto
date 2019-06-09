@@ -22,9 +22,9 @@ class Clinico (Pessoa):
 		profissao = models.CharField(max_length=50, default = '')
 		CRM_CRE = models.CharField(max_length=50, default = '')
 		especialidade = models.CharField(max_length=100, default = '')
-     
 
-class Secretario (Pessoa):
+
+class Secretario(Pessoa):
 	pacientes = []
 	clinicos = []
 	secretarios = []
@@ -37,7 +37,7 @@ class Secretario (Pessoa):
 		self.clinicos.append(Clinico(nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade))
 
 	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc):
-		self.secretarios.append(Pessoa(nome, telefone, cpf, email, data_nasc))
+		self.secretarios.append(Secretario(nome, telefone, cpf, email, data_nasc))
 
 
 
