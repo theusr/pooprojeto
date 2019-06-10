@@ -7,62 +7,58 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="1561.6">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333}
-    p.p3 {margin: 0.0px 0.0px 16.1px 0.0px; line-height: 28.0px; font: 24.0px Times; color: #0000ee; -webkit-text-stroke: #0000ee}
-    p.p4 {margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #0000ee; -webkit-text-stroke: #0000ee}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 16.0px Consolas; color: #333333; -webkit-text-stroke: #333333}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 16.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7; min-height: 15.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.6px Consolas; color: #c82829; -webkit-text-stroke: #c82829; background-color: #f7f7f7}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.6px Consolas; color: #718c00; -webkit-text-stroke: #718c00; background-color: #f7f7f7}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.6px Consolas; color: #c82829; -webkit-text-stroke: #c82829; background-color: #f7f7f7; min-height: 15.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.0px; font: 13.6px Consolas; color: #333333; -webkit-text-stroke: #c82829; background-color: #f7f7f7}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 16.0px Consolas; color: #333333; -webkit-text-stroke: #333333; background-color: #f7f7f7; min-height: 19.0px}
     span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; background-color: #f7f7f7}
-    span.s3 {text-decoration: underline ; font-kerning: none}
+    span.s2 {font-kerning: none; color: #333333; -webkit-text-stroke: 0px #333333}
+    span.s3 {font-kerning: none; color: #c82829; -webkit-text-stroke: 0px #c82829}
+    span.s4 {font-kerning: none; color: #718c00; -webkit-text-stroke: 0px #718c00}
+    span.s5 {font-kerning: none; -webkit-text-stroke: 0px #333333}
+    span.s6 {font-kerning: none; color: #c82829}
   </style>
 </head>
 <body>
 <p class="p1"><span class="s1">{% load staticfiles %}</span></p>
-<p class="p2"><span class="s2">{% block content %}</span></p>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; line-height: 28.0px; font: 24.0px Times; color: #0000ee; -webkit-text-stroke: #0000ee"><span class="s3"><a href="file:///"><b>Lista de Pacientes</b></a></span></h1>
-<p class="p1"><span class="s1">{% for paciente in pacientes %}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #0000ee; -webkit-text-stroke: #0000ee"><span class="s3"><b>{{ paciente.nome}}</b></span></h2>
-<p class="p1"><span class="s1">telefone: {{paciente.telefone}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">cpf: {{paciente.cpf}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">email: {{paciente.email}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">data nascimento: {{paciente.data_nasc}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">tipo sanguineo: {{paciente.tipo_sanguineo}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">orgao: {{paciente.orgao}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">alergia: {{paciente.alergia}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">doenca pre existente: {{paciente.doenca_preexist}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% endfor %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s3"><a href="file:///"><b>Lista de Clínico</b></a><b>s</b></span></p>
-<p class="p1"><span class="s1">{% for clinico in clinicos %}</span></p>
-<p class="p4"><span class="s3"><b>{{ clinico.nome}}</b></span></p>
-<p class="p1"><span class="s1">telefone: {{clinico.telefone}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">cpf: {{clinico.cpf}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">email: {{clinico.email}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">data nascimento: {{clinico.data_nasc}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">setor: {{clinico.setor}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">profissao: {{clinico.profissao}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">CRM ou CRE: {{clinico.CRM_CRE}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">especialidade: {{clinico.especialidade}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% endfor %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p3"><span class="s3"><a href="file:///"><b>Lista de Secretarios</b></a></span></p>
-<p class="p1"><span class="s1">{% for secretario in secretarios %}</span></p>
-<p class="p4"><span class="s3"><b>{{ secretario.nome}}</b></span></p>
-<p class="p1"><span class="s1">telefone: {{secretario.telefone}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">cpf: {{secretario.cpf}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">email: {{secretario.email}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">data nascimento: {{secretario.data_nasc}}<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% endfor %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1">{% endblock %}</span></p>
-<p class="p6"><span class="s1"><br>
-</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">&lt;html&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;title&gt;</span><span class="s1">Transplantes</span><span class="s3">&lt;/title&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;link rel=</span><span class="s1">"stylesheet"</span><span class="s3"> href=</span><span class="s1">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;link rel=</span><span class="s1">"stylesheet"</span><span class="s3"> href=</span><span class="s1">"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;link href=</span><span class="s1">"//fonts.googleapis.com/css?family=Lobster&amp;subset=latin,latin-ext"</span><span class="s3"> rel=</span><span class="s1">"stylesheet"</span><span class="s3"> type=</span><span class="s1">"text/css"</span><span class="s3">&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;link rel=</span><span class="s1">"stylesheet"</span><span class="s3"> href=</span><span class="s1">"{% static 'css/transplante.css' %}"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/head&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;div&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;h1&gt;&lt;a href=</span><span class="s4">"/"</span><span class="s1">&gt;</span><span class="s2">Pacientes</span><span class="s1">&lt;/a&gt;&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s3">&lt;div class=</span><span class="s1">"content container"</span><span class="s3">&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;div class=</span><span class="s4">"row"</span><span class="s1">&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;div class=</span><span class="s4">"col-md-8"</span><span class="s1">&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{% for paciente in pacientes %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;div class=</span><span class="s4">“paciente”</span><span class="s3">&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;h1&gt;&lt;a href=</span><span class="s4">""</span><span class="s3">&gt;</span><span class="s1">{{ paciente.nome }}</span><span class="s3">&lt;/a&gt;&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;p&gt;</span><span class="s1">{{ paciente.telefone}}</span><span class="s3">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.cpf}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.email}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.data_nasc}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.tipo_sanguineo}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.orgao}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.alergia}}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">&lt;p&gt;</span><span class="s1">{{ paciente.doenca_preexist|linebreaksbr }}</span><span class="s6">&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{% endfor %}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p3"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p7"><span class="s1"></span><br></p>
 </body>
 </html>

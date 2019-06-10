@@ -11,9 +11,9 @@ def lista_pacientes(request):
 	return render(request, 'transplante/lista_pacientes.html', {'pacientes': pacientes, 'clinicos': clinicos, 'secretarios': secretarios})
 
 
-def paciente_detail(request, pk):
+def pacientes_detail(request, pk):
     post = get_object_or_404(Paciente, pk=pk)
-    return render(request, 'transplante/paciente_detail.html', {'pacientes': pacientes})
+    return render(request, 'transplante/pacientes_detail.html', {'pacientes': pacientes})
 
 def clinico_detail(request, pk):
     post = get_object_or_404(Clinico, pk=pk)
@@ -22,3 +22,28 @@ def clinico_detail(request, pk):
 def secretario_detail(request, pk):
     post = get_object_or_404(Secretario, pk=pk)
     return render(request, 'transplante/secretario_detail.html', {'secretarios': secretarios})
+
+def paciente_new(request, pk):
+     paciente = get_object_or_404(Paciente, pk=pk)
+     if request.method == "PACIENTE":
+         form = PacienteForm(request.PACIENTE, instance=paciente)
+         if form.is_valid():
+             paciente = form.save(commit=False)
+             paciente.save()
+             return redirect('pacientes_detail', pk=post.pk)
+     else:
+         form = PacienteForm(instance=paciente)
+     return render(request, 'transplante/pacientes_edit.html', {'form': form})
+
+def pacientes_edit(request,pk):
+     paciente = get_object_or_404(Paciente, pk=pk)
+     if request.method == "PACIENTE":
+         form = PacienteForm(request.PACIENTE, instance=paciente)
+         if form.is_valid():
+             paciente = form.save(commit=False)
+             paciente.save()
+             return redirect('pacientes_detail', pk=post.pk)
+     else:
+         form = PacienteForm(instance=paciente)
+     return render(request, 'transplante/pacientes_edit.html', {'form': form})
+        
