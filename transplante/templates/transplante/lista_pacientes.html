@@ -3,13 +3,16 @@
 <html>
     <head>
         <title>Transplantes</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/transplante.css' %}">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+       <link rel="stylesheet" href="{% static 'css/transplante.css' %}"> 
     </head>
     <body>
+
         <div>
+<div class="page-header">
+            <a href="{% url 'paciente_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">Pacientes</a></h1>
         </div>
  
@@ -19,15 +22,7 @@
             {% for paciente in pacientes %}
                 <div class=“paciente”>
                     </div>
-                    <h1><a href="">{{ paciente.nome }}</a></h1>
-                    <p>telefone: {{ paciente.telefone}}</p>
-                    <p>cpf: {{ paciente.cpf}}</p>
-                    <p>email: {{ paciente.email}}</p>
-                    <p>data nascimento: {{ paciente.data_nasc}}</p>
-                    <p>tipo sanguineo: {{ paciente.tipo_sanguineo}}</p>
-                    <p>orgao: {{ paciente.orgao}}</p>
-                    <p>alergia: {{ paciente.alergia}}</p>
-                    <p>doenca pre existente: {{ paciente.doenca_preexist|linebreaksbr }}</p>
+                    <h2><a href="{% url 'pacientes_detail' pk=paciente.pk %}">{{ paciente.nome }}</a></h2>
                 </div>
             {% endfor %}
         </div>
