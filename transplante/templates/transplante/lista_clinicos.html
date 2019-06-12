@@ -1,0 +1,31 @@
+{% load staticfiles %} 
+ 
+<html>
+    <head>
+        <title>Transplantes</title>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+       <link rel="stylesheet" href="{% static 'css/transplante.css' %}"> 
+    </head>
+    <body>
+
+        <div>
+<div class="page-header">
+            <a href="{% url 'clinico_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a href="/">Clinicos</a></h1>
+        </div>
+ 
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for clinico in clinicos %}
+                <div class="clinico">
+                    </div>
+                    <h2><a href="{% url 'clinicos_detail' pk=clinico.pk %}">{{ clinico.nome }}</a></h2>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+

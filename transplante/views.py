@@ -9,26 +9,39 @@ def home(request):
 
 def lista_pacientes(request):
 	pacientes = Paciente.objects.all()
-	clinicos = Clinico.objects.all()
-	secretarios = Secretario.objects.all()
-	return render(request, 'transplante/lista_pacientes.html', {'pacientes': pacientes, 'clinicos': clinicos, 'secretarios': secretarios})
+	return render(request, 'transplante/lista_pacientes.html', {'pacientes': pacientes})
 
+def lista_clinicos(request):
+        clinicos = Clinico.objects.all()
+        return render(request, 'transplante/lista_clinicos.html', {'clinicos': clinicos})
+
+def lista_secretarios(request):
+        secretarios = Secretario.objects.all()
+        return render(request, 'transplante/lista_secretarios.html', {'secretarios': secretarios})
 
 def pacientes_detail(request, pk):
     paciente = get_object_or_404(Paciente, pk=pk)
     return render(request, 'transplante/pacientes_detail.html', {'paciente': paciente})
 
-def clinico_detail(request, pk):
+def clinicos_detail(request, pk):
     clinico = get_object_or_404(Clinico, pk=pk)
-    return render(request, 'transplante/clinico_detail.html', {'clinicos': clinicos})
+    return render(request, 'transplante/clinicos_detail.html', {'clinico': clinico})
 
-def secretario_detail(request, pk):
+def secretarios_detail(request, pk):
     secretario = get_object_or_404(Secretario, pk=pk)
-    return render(request, 'transplante/secretario_detail.html', {'secretarios': secretarios})
+    return render(request, 'transplante/secretarios_detail.html', {'secretario': secretario})
 
 def paciente_new(request):
 	form = PacienteForm()
 	return render(request, 'transplante/pacientes_edit.html', {'form': form})
+
+def clinico_new(request):
+	form = ClinicoForm()
+	return render(request, 'transplante/clinicos_edit.html', {'form': form})
+
+def secretario_new(request):
+	form = SecretarioForm()
+	return render(request, 'transplante/secretarios_edit.html', {'form': form})
 
 def pacientes_edit(request,pk):
      paciente = get_object_or_404(Paciente, pk=pk)
@@ -40,4 +53,26 @@ def pacientes_edit(request,pk):
      else:
          form = PacienteForm(instance=paciente)
      return render(request, 'transplante/pacientes_edit.html', {'form': form})
+
+def clinicos_edit(request,pk):
+     clinico = get_object_or_404(Clinico, pk=pk)
+     if request.method == "POST":
+         form = ClinicoForm(request.POST, instance=clinico)
+         if form.is_valid():
+             clinico.save()
+             return redirect('clinicos_detail', pk=clinico.pk)
+     else:
+         form = ClinicoForm(instance=clinico)
+     return render(request, 'transplante/clinicos_edit.html', {'form': form})
+
+def secretarios_edit(request,pk):
+     secretario = get_object_or_404(Secretario, pk=pk)
+     if request.method == "POST":
+         form = SecretarioForm(request.POST, instance=secretario)
+         if form.is_valid():
+             secretario.save()
+             return redirect('secretarios_detail', pk=secretario.pk)
+     else:
+         form = SecretarioForm(instance=secretario)
+     return render(request, 'transplante/secretarios_edit.html', {'form': form})
         
