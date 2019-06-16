@@ -1,7 +1,23 @@
+{% load staticfiles %} 
+
 <html>
 
-<h1><a href="{% url 'lista_pacientes' %}">LISTAR PACIENTES</a></h1>
-<h1><a href="{% url 'lista_clinicos' %}">LISTAR CLINICOS</a></h1>
-<h1><a href="{% url 'lista_secretarios' %}">LISTAR SECRETARIOS</a></h1>
+    <head>
+        <title>Transplantes</title>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+       <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    </head>
+
+        <div>
+<div class="page-header">
+            
+            <h1>Sistema de Cadastro de Transplante</h1>
+        </div>
+
+<h1><a href="{% url 'lista_pacientes' %}">Lista de Pacientes</a></h1>
+<h1><a href="{% url 'lista_clinicos' %}">Lista de Clínicos</a></h1>
+<h1><a href="{% url 'lista_secretarios' %}">Lista de Secretários</a></h1>
 
 </html>

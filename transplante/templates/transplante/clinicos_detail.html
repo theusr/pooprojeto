@@ -10,19 +10,19 @@
     <div class="content container">
     <body>
    <div class="page-header">
-        <h3><a href="/"><< Voltar para listagem de clinicos</a></h3>
+        <h3><a href="/"><< Voltar</a></h3>
     </div>
         <div class="row">
             <div class="col-md-8">
       <h1><a href="{% url 'clinicos_detail' pk=clinico.pk %}">{{ clinico.nome }}</a></h1>
-                    <p>telefone: {{ clinico.telefone}}</p>
-                    <p>cpf: {{ clinico.cpf}}</p>
-                    <p>email: {{ clinico.email}}</p>
-                    <p>data nascimento: {{ clinico.data_nasc}}</p>
-                    <p>setor: {{ clinico.setor}}</p>
-                    <p>profissao: {{ clinico.profissao}}</p>
+                    <p>Telefone: {{ clinico.telefone}}</p>
+                    <p>Cpf: {{ clinico.cpf}}</p>
+                    <p>Email: {{ clinico.email}}</p>
+                    <p>Data de nascimento: {{ clinico.data_nasc}}</p>
+                    <p>Setor: {{ clinico.setor}}</p>
+                    <p>Profissão: {{ clinico.profissao}}</p>
                     <p>CRM ou CRE: {{ clinico.CRM_CRE}}</p>
-                    <p>especialidade: {{ clinico.especialidade|linebreaksbr }}</p>
+                    <p>Especialidade: {{ clinico.especialidade|linebreaksbr }}</p>
             </div>
         </div>
     </div>

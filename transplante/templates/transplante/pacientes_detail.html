@@ -9,20 +9,20 @@
     </head>
     <body>
    <div class="page-header">
-        <h3><a href="/"><< Voltar para listagem de pacientes</a></h3>
+        <h3><a href="/"><< Voltar</a></h3>
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
 			<h1><a href="{% url 'pacientes_detail' pk=paciente.pk %}">{{ paciente.nome }}</a></h1>
-                    <p>telefone: {{ paciente.telefone}}</p>
-                    <p>cpf: {{ paciente.cpf}}</p>
-                    <p>email: {{ paciente.email}}</p>
-                    <p>data nascimento: {{ paciente.data_nasc}}</p>
-                    <p>tipo sanguineo: {{ paciente.tipo_sanguineo}}</p>
-                    <p>orgao: {{ paciente.orgao}}</p>
-                    <p>alergia: {{ paciente.alergia}}</p>
-                    <p>doenca pre existente: {{ paciente.doenca_preexist|linebreaksbr }}</p>
+                    <p>Telefone: {{ paciente.telefone}}</p>
+                    <p>Cpf: {{ paciente.cpf}}</p>
+                    <p>Email: {{ paciente.email}}</p>
+                    <p>Data de nascimento: {{ paciente.data_nasc}}</p>
+                    <p>Tipo sanguíneo: {{ paciente.tipo_sanguineo}}</p>
+                    <p>Órgão: {{ paciente.orgao}}</p>
+                    <p>Alergia: {{ paciente.alergia}}</p>
+                    <p>Doenças pré existentes: {{ paciente.doenca_preexist|linebreaksbr }}</p>
             </div>
         </div>
     </div>
