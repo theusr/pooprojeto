@@ -23,8 +23,11 @@ class Clinico (Pessoa):
 		CRM_CRE = models.CharField(max_length=50, default = '', verbose_name='CRM ou CRE')
 		especialidade = models.CharField(max_length=100, default = '', verbose_name='Especialidade')
 
+class Secretario (Pessoa):
+		nome = Pessoa.nome
 
-class Secretario(Pessoa):
+
+class Sistema:
 	pacientes = []
 	clinicos = []
 	secretarios = []
