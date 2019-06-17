@@ -104,14 +104,14 @@ def secretarios_edit(request,pk):
 def remove_paciente(request, pk):
         paciente = get_object_or_404(Paciente, pk=pk)
         paciente.delete()
-        return redirect('lista_pacientes', pk=paciente.pk)
+        return redirect('lista_pacientes')
 
 def remove_clinico(request, pk):
         clinico = get_object_or_404(Clinico, pk=pk)
         clinico.delete()
-        return redirect('lista_clinicos', pk=clinico.pk)
+        return redirect('lista_clinicos')
 
 def remove_secretario(request, pk):
         secretario = get_object_or_404(Secretario, pk=pk)
         secretario.delete()
-        return redirect('lista_secretarios', pk=secretario.pk)
+        return redirect('lista_secretarios')
