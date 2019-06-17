@@ -101,3 +101,17 @@ def secretarios_edit(request,pk):
      return render(request, 'transplante/secretarios_edit.html', {'form': form})
         
 
+def remove_paciente(request, pk):
+        paciente = get_object_or_404(Paciente, pk=pk)
+        paciente.delete()
+        return redirect('lista_pacientes', pk=paciente.pk)
+
+def remove_clinico(request, pk):
+        clinico = get_object_or_404(Clinico, pk=pk)
+        clinico.delete()
+        return redirect('lista_clinicos', pk=clinico.pk)
+
+def remove_secretario(request, pk):
+        secretario = get_object_or_404(Secretario, pk=pk)
+        secretario.delete()
+        return redirect('lista_secretarios', pk=secretario.pk)
