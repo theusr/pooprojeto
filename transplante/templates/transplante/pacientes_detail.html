@@ -15,6 +15,7 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
+            <a class="btn btn-default" href="{% url 'pacientes_edit' pk=paciente.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 			<h1><a href="{% url 'pacientes_detail' pk=paciente.pk %}">{{ paciente.nome }}</a></h1>
                     <p>Telefone: {{ paciente.telefone}}</p>
                     <p>Cpf: {{ paciente.cpf}}</p>

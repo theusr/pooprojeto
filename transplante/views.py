@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Paciente, Clinico, Secretario
 from .forms import PacienteForm, ClinicoForm, SecretarioForm
 
@@ -32,22 +32,44 @@ def secretarios_detail(request, pk):
     return render(request, 'transplante/secretarios_detail.html', {'secretario': secretario})
 
 def paciente_new(request):
-	form = PacienteForm()
-	return render(request, 'transplante/pacientes_edit.html', {'form': form})
+     if request.method == "POST":
+         form = PacienteForm(request.POST)
+         if form.is_valid():
+             paciente = form.save()
+             paciente.save()
+             return redirect('pacientes_detail', pk=paciente.pk)
+     else:
+         form = PacienteForm()
+     return render(request, 'transplante/pacientes_edit.html', {'form': form})
 
 def clinico_new(request):
-	form = ClinicoForm()
-	return render(request, 'transplante/clinicos_edit.html', {'form': form})
+     if request.method == "POST":
+         form = ClinicoForm(request.POST)
+         if form.is_valid():
+             clinico = form.save()
+             clinico.save()
+             return redirect('clinicos_detail', pk=clinico.pk)
+     else:
+         form = ClinicoForm()
+     return render(request, 'transplante/clinicos_edit.html', {'form': form})
 
 def secretario_new(request):
-	form = SecretarioForm()
-	return render(request, 'transplante/secretarios_edit.html', {'form': form})
+     if request.method == "POST":
+         form = SecretarioForm(request.POST)
+         if form.is_valid():
+             secretario = form.save()
+             secretario.save()
+             return redirect('secretarios_detail', pk=secretario.pk)
+     else:
+         form = SecretarioForm()
+     return render(request, 'transplante/secretarios_edit.html', {'form': form})
 
 def pacientes_edit(request,pk):
      paciente = get_object_or_404(Paciente, pk=pk)
      if request.method == "POST":
          form = PacienteForm(request.POST, instance=paciente)
          if form.is_valid():
+             paciente = form.save()
              paciente.save()
              return redirect('pacientes_detail', pk=paciente.pk)
      else:
@@ -59,6 +81,7 @@ def clinicos_edit(request,pk):
      if request.method == "POST":
          form = ClinicoForm(request.POST, instance=clinico)
          if form.is_valid():
+             clinico = form.save()
              clinico.save()
              return redirect('clinicos_detail', pk=clinico.pk)
      else:
@@ -70,9 +93,11 @@ def secretarios_edit(request,pk):
      if request.method == "POST":
          form = SecretarioForm(request.POST, instance=secretario)
          if form.is_valid():
+             secretario = form.save()
              secretario.save()
              return redirect('secretarios_detail', pk=secretario.pk)
      else:
          form = SecretarioForm(instance=secretario)
      return render(request, 'transplante/secretarios_edit.html', {'form': form})
         
+
