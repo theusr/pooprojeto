@@ -20,7 +20,7 @@ class SecretarioForm(forms.ModelForm):
 class CirurgiaForm(forms.ModelForm):
     class Meta:
         model = Cirurgia
-        fields = ('data_hora', 'sala_cirurgia', 'sala_recuperacao', 'tempo_duracao', 'equipamento', 'doador', 'receptor', 'medico_responsavel', 'enfermeiro_responsavel')
+        fields = ('data_hora', 'sala_cirurgia', 'sala_recuperacao', 'orgao', 'tempo_duracao', 'equipamento', 'doador', 'receptor', 'medico_responsavel', 'enfermeiro_responsavel')
 
 
 class LoginForm(forms.Form):

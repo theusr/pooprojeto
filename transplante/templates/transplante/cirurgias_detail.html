@@ -1,0 +1,39 @@
+{% load staticfiles %} 
+ 
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+       <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    </head>
+    <body>
+     <div class="page-header">
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-search"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+    {% if user.is_authenticated %}
+            <a href="{% url 'cirurgia_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
+            <h1>Cirurgia</h1>
+        </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            <a class="btn btn-default" href="{% url 'cirurgias_edit' pk=cirurgia.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'remove_cirurgia' pk=cirurgia.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+			<h1><a href="{% url 'cirurgias_detail' pk=cirurgia.pk %}">{{ cirurgia.data_hora }}</a></h1>
+                    <p>Sala de Cirurgia: {{ cirurgia.sala_cirurgia}}</p>
+                    <p>Sala de Recuperação: {{ cirurgia.sala_recuperacao}}</p>
+                    <p>Órgão: {{ cirurgia.orgao}}</p>
+                    <p>Tempo de Duração: {{ cirurgia.tempo_duracao}}</p>
+                    <p>Equipamento: {{ cirurgia.equipamento}}</p>
+                    <p>Doador: {{ cirurgia.doador}}</p>
+                    <p>Receptor: {{ cirurgia.receptor}}</p>
+                    <p>Médico Responsável: {{ cirurgia.medico_responsavel}}</p>
+                    <p>Enfermeiro Responsável: {{ cirurgia.enfermeiro_responsavel|linebreaksbr }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

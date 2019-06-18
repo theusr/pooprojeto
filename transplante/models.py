@@ -33,6 +33,7 @@ class Cirurgia(models.Model):
                 data_hora = models.CharField(max_length=30, default = '', verbose_name='Data e hora da Cirurgia')
                 sala_cirurgia = models.CharField(max_length=15, default = '', verbose_name='Sala da Cirurgia')
                 sala_recuperacao = models.CharField(max_length=15, default = '', verbose_name='Sala de Recuperação')
+                orgao = models.CharField(max_length=20, default = '', verbose_name='Órgão')
                 tempo_duracao = models.CharField(max_length=30, default = '', verbose_name='Tempo de Duração da Cirurgia')
                 equipamento = models.CharField(max_length=100, default = '', verbose_name='Equipamento Necessário')
                 doador = models.ForeignKey('Paciente', on_delete=models.PROTECT, null=True, related_name = 'doador')
@@ -57,8 +58,8 @@ class Sistema:
 	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc):
 		self.secretarios.append(Secretario(nome, telefone, cpf, email, data_nasc))
 
-	def RegistraCirurgia(self, data_hora, sala_cirurgia, sala_recuperacao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel):
-                self.cirurgias.append(Cirurgia(data_hora, sala_cirurgia, sala_recuperacao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel))
+	def RegistraCirurgia(self, data_hora, sala_cirurgia, sala_recuperacao, orgao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel):
+                self.cirurgias.append(Cirurgia(data_hora, sala_cirurgia, sala_recuperacao, orgao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel))
 
 
 
