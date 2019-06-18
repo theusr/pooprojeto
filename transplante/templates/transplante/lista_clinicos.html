@@ -22,7 +22,7 @@
 <div class="content container">
 
     <div class="row">
-<h2>Clique para visualizar ou editar</h2>
+<h2>Clique para visualizar ou editar</h2><br>
             {% for clinico in clinicos %}
                 <div class="clinico">
                     <h3><a href="{% url 'clinicos_detail' pk=clinico.pk %}">{{ clinico.nome }}</a></h3>
