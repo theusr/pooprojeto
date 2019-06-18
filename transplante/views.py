@@ -136,12 +136,11 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated',
-                        'successfully')
+                    return redirect('home')
                 else:
-                    return HttpResponse('Disabled account')
+                    return HttpResponse('Conta desativada')
             else:
-                return HttpResponse('Invalid Login')
+                return HttpResponse('Login inválido')
     else:
         form = LoginForm()
     return render(request, 'transplante/login.html', {'form': form})

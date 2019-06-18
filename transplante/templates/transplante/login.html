@@ -1,24 +1,10 @@
 
-{% load staticfiles %} 
+</html>
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
-    </head>
-    <body>
-{% block title %}Log-in{% endblock %}
-
-{% block content %}
-    <h1>Log-in</h1>
-    <p>Use o formulário abaixo:</p>
-    <form action="." method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
-{%  endblock %}
-    <body>
 </html>
