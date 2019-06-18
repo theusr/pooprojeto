@@ -15,7 +15,7 @@ class ClinicoForm(forms.ModelForm):
 class SecretarioForm(forms.ModelForm):
     class Meta:
         model = Secretario
-        fields = ('nome', 'telefone', 'cpf', 'email', 'data_nasc')
+        fields = ('nome', 'telefone', 'cpf', 'email', 'data_nasc', 'registro_funcionario')
 
 class CirurgiaForm(forms.ModelForm):
     class Meta:

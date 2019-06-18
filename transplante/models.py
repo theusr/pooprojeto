@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.utils.encoding import python_2_unicode_compatible
 
 # Create your models here.
 
@@ -33,7 +32,7 @@ class Clinico (Pessoa):
 
 
 class Secretario (Pessoa):
-		nome = Pessoa.nome
+		registro_funcionario = models.CharField(max_length=50, default = '', verbose_name='Registro do Funcionário')
 
 class Cirurgia(models.Model):
 		data_hora = models.DateTimeField(max_length=30, default = '', verbose_name='Data e Hora da Cirurgia')
@@ -61,8 +60,8 @@ class Sistema:
 	def RegistraClinico(self,nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade):
 		self.clinicos.append(Clinico(nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade))
 
-	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc):
-		self.secretarios.append(Secretario(nome, telefone, cpf, email, data_nasc))
+	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc, registro_funcionario):
+		self.secretarios.append(Secretario(nome, telefone, cpf, email, data_nasc, registro_funcionario))
 
 	def RegistraCirurgia(self, data_hora, sala_cirurgia, sala_recuperacao, orgao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel):
 		self.cirurgias.append(Cirurgia(data_hora, sala_cirurgia, sala_recuperacao, orgao, tempo_duracao, equipamento, doador, receptor, medico_responsavel, enfermeiro_responsavel))
