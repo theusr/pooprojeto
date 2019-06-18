@@ -24,4 +24,10 @@ urlpatterns = [
     path('secretario/new/', views.secretario_new, name='secretario_new'),
     path('secretario/<int:pk>/edit/', views.secretarios_edit, name='secretarios_edit'),
     path('secretario/<int:pk>/remover/', views.remove_secretario, name='remove_secretario'),
+
+    path('cirurgia/lista_cirurgias', views.lista_cirurgias, name='lista_cirurgias'),
+    path('cirurgia/<int:pk>/', views.cirurgias_detail, name='cirurgias_detail'),
+    path('cirurgia/new/', views.cirurgia_new, name='cirurgia_new'),
+    path('cirurgia/<int:pk>/edit/', views.cirurgias_edit, name='cirurgias_edit'),
+    path('cirurgia/<int:pk>/remover/', views.remove_cirurgia, name='remove_cirurgia'),
     ]

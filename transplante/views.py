@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Paciente, Clinico, Secretario, Sistema
-from .forms import PacienteForm, ClinicoForm, SecretarioForm
+from .models import Paciente, Clinico, Secretario, Sistema, Cirurgia
+from .forms import PacienteForm, ClinicoForm, SecretarioForm, CirurgiaForm
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -23,6 +23,10 @@ def lista_secretarios(request):
         secretarios = Secretario.objects.order_by('nome').all()
         return render(request, 'transplante/lista_secretarios.html', {'secretarios': secretarios})
 
+def lista_cirurgias(request):
+        cirurgias = Cirurgia.objects.order_by('data_hora').all()
+        return render(request, 'transplante/lista_cirurgias.html', {'cirurgias': cirurgias})
+
 def pacientes_detail(request, pk):
     paciente = get_object_or_404(Paciente, pk=pk)
     return render(request, 'transplante/pacientes_detail.html', {'paciente': paciente})
@@ -34,6 +38,10 @@ def clinicos_detail(request, pk):
 def secretarios_detail(request, pk):
     secretario = get_object_or_404(Secretario, pk=pk)
     return render(request, 'transplante/secretarios_detail.html', {'secretario': secretario})
+
+def cirurgias_detail(request, pk):
+    cirurgia = get_object_or_404(Cirurgia, pk=pk)
+    return render(request, 'transplante/cirurgias_detail.html', {'cirurgia': cirurgia})
 
 def paciente_new(request):
      if request.method == "POST":
@@ -70,6 +78,19 @@ def secretario_new(request):
      else:
          form = SecretarioForm()
      return render(request, 'transplante/secretarios_edit.html', {'form': form})
+
+def cirurgia_new(request):
+     if request.method == "POST":
+         form = CirurgiaForm(request.POST)
+         if form.is_valid():
+             cirurgia = form.save(commit=False)
+             cirurgia.author = request.user
+             cirurgia.save()
+             return redirect('cirurgias_detail', pk=cirurgia.pk)
+     else:
+         form = CirurgiaForm()
+     return render(request, 'transplante/cirurgias_edit.html', {'form': form})
+
 
 def pacientes_edit(request,pk):
      paciente = get_object_or_404(Paciente, pk=pk)
@@ -109,6 +130,19 @@ def secretarios_edit(request,pk):
      else:
          form = SecretarioForm(instance=secretario)
      return render(request, 'transplante/secretarios_edit.html', {'form': form})
+
+def cirurgias_edit(request,pk):
+     cirurgia = get_object_or_404(Cirurgia, pk=pk)
+     if request.method == "POST":
+         form = CirurgiaForm(request.POST, instance=cirurgia)
+         if form.is_valid():
+             cirurgia = form.save(commit=False)
+             cirurgia.author = request.user
+             cirurgia.save()
+             return redirect('cirurgias_detail', pk=cirurgia.pk)
+     else:
+         form = CirurgiaForm(instance=cirurgia)
+     return render(request, 'transplante/cirurgias_edit.html', {'form': form})
         
 
 def remove_paciente(request, pk):
@@ -125,6 +159,11 @@ def remove_secretario(request, pk):
         secretario = get_object_or_404(Secretario, pk=pk)
         secretario.delete()
         return redirect('lista_secretarios')
+
+def remove_cirurgia(request, pk):
+        cirurgia = get_object_or_404(Cirurgia, pk=pk)
+        cirurgia.delete()
+        return redirect('lista_cirurgias')
 
 def user_login(request):
     if request.method == 'POST':
