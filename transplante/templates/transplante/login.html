@@ -1,10 +1,28 @@
+{% load staticfiles %} 
+<html>
+  <head>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+       <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    </head>
+        <div>
+<div class="page-header">
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+            <h1>Transplantes</h1>
+        </div>
 
-</html>
-<h2>Login</h2>
+
+<body>
+<div class="content container">
 <form method="post">
+<fieldset>
+<legend>Bem-vindo (a). Faça login para começar:</legend>
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Login</button>
+</fieldset>
 </form>
-
+</div>
+</body>
 </html>

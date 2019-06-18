@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
+from django.db.models import Q
 
 # Create your views here.
 
@@ -183,3 +184,77 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'transplante/login.html', {'form': form})
+
+def busca_pacientes(request):
+	if request.method == 'GET':
+		search_query = request.GET.get('q')
+		submitbutton= request.GET.get('submit')
+
+		if search_query is not None:
+			lookups=Q(nome__icontains=search_query) | Q(orgao__icontains=search_query)
+			results=Paciente.objects.filter(lookups).distinct()
+			context={'results': results, 'submitbutton': submitbutton}
+			return render(request, 'transplante/busca_pacientes.html', context)
+
+
+		else:
+			return render(request, 'transplante/busca_pacientes.html')
+
+	else:
+		return render(request, 'transplante/busca_pacientes.html')
+
+def busca_clinicos(request):
+	if request.method == 'GET':
+		search_query = request.GET.get('q')
+		submitbutton= request.GET.get('submit')
+
+		if search_query is not None:
+			lookups=Q(nome__icontains=search_query) | Q(profissao__icontains=search_query) | Q(setor__icontains=search_query)
+			results=Clinico.objects.filter(lookups).distinct()
+			context={'results': results, 'submitbutton': submitbutton}
+			return render(request, 'transplante/busca_clinicos.html', context)
+
+
+		else:
+			return render(request, 'transplante/busca_clinicos.html')
+
+	else:
+		return render(request, 'transplante/busca_clinicos.html')
+
+def busca_secretarios(request):
+	if request.method == 'GET':
+		search_query = request.GET.get('q')
+		submitbutton= request.GET.get('submit')
+
+		if search_query is not None:
+			lookups=Q(nome__icontains=search_query) | Q(nome__icontains=search_query)
+			results=Secretario.objects.filter(lookups).distinct()
+			context={'results': results, 'submitbutton': submitbutton}
+			return render(request, 'transplante/busca_secretarios.html', context)
+
+
+		else:
+			return render(request, 'transplante/busca_secretarios.html')
+
+	else:
+		return render(request, 'transplante/busca_secretarios.html')
+
+def busca_cirurgias(request):
+	if request.method == 'GET':
+		search_query = request.GET.get('q')
+		submitbutton= request.GET.get('submit')
+
+		if search_query is not None:
+			lookups=Q(receptor__icontains=search_query) | Q(doador__icontains=search_query)
+			results=Cirurgia.objects.filter(lookups)
+			context={'results': results, 'submitbutton': submitbutton}
+			return render(request, 'transplante/busca_cirurgias.html', context)
+
+
+		else:
+			return render(request, 'transplante/busca_cirurgias.html')
+
+	else:
+		return render(request, 'transplante/busca_cirurgias.html')
+
+

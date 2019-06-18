@@ -11,11 +11,13 @@
 
         <div>
 <div class="page-header">
-            <a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+            <a href="{% url 'home' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
 			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
             <h1>Transplantes</h1>
         </div>
 
+<div class="content container">
+<div class="row">
 <h1> Bem-vindo (a), selecione uma opção: </h1>
 
 <h2><a href="{% url 'lista_cirurgias' %}">Cirurgias</a></h2>
@@ -23,5 +25,6 @@
 <h2><a href="{% url 'lista_clinicos' %}">Clínicos</a></h2>
 <h2><a href="{% url 'lista_secretarios' %}">Secretários</a></h2>
 
+</div></div>
 
 </html>

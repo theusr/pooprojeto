@@ -8,8 +8,8 @@
        <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
 
 <div class="page-header">
-			<a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
-			<a href="/" class="top-menu"><span class="glyphicon glyphicon-search"></span></a>
+			<a href="{% url 'home' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+			<a href="{% url 'busca_pacientes' %}" class="top-menu"><span class="glyphicon glyphicon-search"></span></a>
 			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
     {% if user.is_authenticated %}
             <a href="{% url 'paciente_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
@@ -17,6 +17,8 @@
             <h1>Pacientes</h1>
         </div>
 </head> <body>
+
+
 <div class="content container">
 
     <div class="row">
