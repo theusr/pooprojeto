@@ -25,8 +25,8 @@
 
 <form action="{% url 'busca_cirurgias' %}" method="GET" value="{{request.GET.q}}">
 <fieldset>
-<legend>Digite o que procura:</legend>
-<input type="text" name="q" value="{{request.GET.q}}" placeholder="Busque por data, hora, paciente ou profissional envolvido"/>
+<legend>Busque por data, hora, sala ou orgão envolvido:</legend>
+<input type="text" name="q" value="{{request.GET.q}}" placeholder="Digite aqui:"/>
 <input type="submit" name="submit" value="buscar"/>
 {% csrf_token %}
 </fieldset>

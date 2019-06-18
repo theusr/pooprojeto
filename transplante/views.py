@@ -191,7 +191,7 @@ def busca_pacientes(request):
 		submitbutton= request.GET.get('submit')
 
 		if search_query is not None:
-			lookups=Q(nome__icontains=search_query) | Q(orgao__icontains=search_query)
+			lookups=Q(nome__icontains=search_query) | Q(orgao__icontains=search_query) | Q(cpf__icontains=search_query)
 			results=Paciente.objects.filter(lookups).distinct()
 			context={'results': results, 'submitbutton': submitbutton}
 			return render(request, 'transplante/busca_pacientes.html', context)
@@ -227,7 +227,7 @@ def busca_secretarios(request):
 		submitbutton= request.GET.get('submit')
 
 		if search_query is not None:
-			lookups=Q(nome__icontains=search_query) | Q(nome__icontains=search_query)
+			lookups=Q(nome__icontains=search_query) | Q(registro_funcionario__icontains=search_query) | Q(cpf__icontains=search_query)
 			results=Secretario.objects.filter(lookups).distinct()
 			context={'results': results, 'submitbutton': submitbutton}
 			return render(request, 'transplante/busca_secretarios.html', context)
@@ -245,8 +245,8 @@ def busca_cirurgias(request):
 		submitbutton= request.GET.get('submit')
 
 		if search_query is not None:
-			lookups=Q(receptor__icontains=search_query) | Q(doador__icontains=search_query)
-			results=Cirurgia.objects.filter(lookups)
+			lookups=Q(data_hora__icontains=search_query) | Q(sala_cirurgia__icontains=search_query) | Q(orgao__icontains=search_query)
+			results=Cirurgia.objects.filter(lookups).distinct()
 			context={'results': results, 'submitbutton': submitbutton}
 			return render(request, 'transplante/busca_cirurgias.html', context)
 
