@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -36,11 +37,14 @@ class Sistema:
 	def RegistraPaciente(self, nome, telefone, cpf, email, data_nasc, tipo_sanguineo, orgao, alergia, doenca_preexist):
 		self.pacientes.append(Paciente(nome, telefone, cpf, email, data_nasc, tipo_sanguineo, orgao, alergia, doenca_preexist))
 
-	def RegistraClinico(self, nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade):
+	def RegistraClinico(self,nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade):
 		self.clinicos.append(Clinico(nome, telefone, cpf, email, data_nasc, id_clinico, setor, profissao, CRM_CRE, especialidade))
 
 	def RegistraSecretario(self, nome, telefone, cpf, email, data_nasc):
 		self.secretarios.append(Secretario(nome, telefone, cpf, email, data_nasc))
+
+
+
 
 
 
