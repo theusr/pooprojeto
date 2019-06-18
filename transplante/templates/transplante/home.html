@@ -11,12 +11,15 @@
 
         <div>
 <div class="page-header">
-            
-            <h1><strong>Sistema de Cadastro de Transplante</strong></h1>
+            <a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+            <h1>Transplantes</h1>
         </div>
 
-<h1><a href="{% url 'lista_pacientes' %}">Lista de Pacientes</a></h1>
-<h1><a href="{% url 'lista_clinicos' %}">Lista de Clínicos</a></h1>
-<h1><a href="{% url 'lista_secretarios' %}">Lista de Secretários</a></h1>
+<h1> Bem-vindo (a), selecione uma opção: </h1>
+
+<h2><a href="{% url 'lista_pacientes' %}">Pacientes</a></h2>
+<h2><a href="{% url 'lista_clinicos' %}">Clínicos</a></h2>
+<h2><a href="{% url 'lista_secretarios' %}">Secretários</a></h2>
 
 </html>

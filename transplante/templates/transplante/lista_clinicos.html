@@ -9,19 +9,23 @@
     </head>
     <body>
 
-        <div>
 <div class="page-header">
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-search"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+    {% if user.is_authenticated %}
             <a href="{% url 'clinico_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <h1><a href="/">Clínicos</a></h1>
+    {% endif %}
+            <h1>Clínicos</h1>
         </div>
  
 <div class="content container">
+
     <div class="row">
-        <div class="col-md-8">
+<h2>Clique para visualizar ou editar</h2>
             {% for clinico in clinicos %}
                 <div class="clinico">
-                    </div>
-                    <h2><a href="{% url 'clinicos_detail' pk=clinico.pk %}">{{ clinico.nome }}</a></h2>
+                    <h3><a href="{% url 'clinicos_detail' pk=clinico.pk %}">{{ clinico.nome }}</a></h3>
                 </div>
             {% endfor %}
         </div>

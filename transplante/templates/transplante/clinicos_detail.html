@@ -9,9 +9,15 @@
     </head>
     <div class="content container">
     <body>
-   <div class="page-header">
-        <h3><a href="/"><< Voltar</a></h3>
-    </div>
+<div class="page-header">
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-search"></span></a>
+			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+    {% if user.is_authenticated %}
+            <a href="{% url 'clinico_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
+            <h1>Clínicos</h1>
+        </div>
         <div class="row">
             <div class="col-md-8">
             <a class="btn btn-default" href="{% url 'clinicos_edit' pk=clinico.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
