@@ -5,11 +5,10 @@ from . import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.user_login, name = 'login'),
+	path('', views.home, name='home'),
+	path('home/', views.home, name='home'),
     path('transplante/login/', views.user_login, name = 'login'),
     path('logout/', views.logout, name = 'logout'),
-    
-    path('home/', views.home, name='home'),
     
     path('paciente/lista_pacientes', views.lista_pacientes, name='lista_pacientes'),
     path('paciente/<int:pk>/', views.pacientes_detail, name='pacientes_detail'),
