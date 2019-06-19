@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -185,6 +187,21 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'transplante/login.html', {'form': form})
 
+def formView(request):
+        if request.session.has_key('username'):
+                username = request.session['username']
+                return render(request, 'home.html', {'username' : username})
+        else:
+                return render(request, 'transplante/login.html', {})
+
+def logout(request):
+    try:
+        del request.session['member_id']
+    except KeyError:
+        pass
+    return redirect('logout.html')
+
+
 def busca_pacientes(request):
 	if request.method == 'GET':
 		search_query = request.GET.get('q')
@@ -256,5 +273,10 @@ def busca_cirurgias(request):
 
 	else:
 		return render(request, 'transplante/busca_cirurgias.html')
+
+
+class MyView(LoginRequiredMixin):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
 
 

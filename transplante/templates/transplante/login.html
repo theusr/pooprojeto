@@ -6,23 +6,50 @@
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
        <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
     </head>
+
         <div>
 <div class="page-header">
-			<a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+      <a href="/" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
             <h1>Transplantes</h1>
         </div>
 
 
-<body>
-<div class="content container">
-<form method="post">
-<fieldset>
-<legend>Bem-vindo (a). Faça login para começar:</legend>
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</fieldset>
-</form>
-</div>
-</body>
 </html>
+
+{% block content %}
+
+{% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>Please login to see this page.</p>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+
+<tr>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</tr>
+
+<tr>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+
+{% endblock %}
+
